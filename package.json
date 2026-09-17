@@ -1,7 +1,7 @@
 {
-  "name": "ejercicio-2-alumnos",
+  "name": "ejercicio-3-tareas",
   "version": "1.0.0",
-  "description": "API para gestionar información de alumnos",
+  "description": "API para gestionar información de tareas",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

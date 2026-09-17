@@ -1,0 +1,50 @@
+### Variables
+@api = http://localhost:3000/api/tareas
+
+### 1. Crear tarea (Pendiente)
+POST {{api}}
+Content-Type: application/json
+
+{
+  "nombre": "Terminar Ejercicio 3 del TP",
+  "completada": false
+}
+
+### 2. Crear tarea (Completada)
+POST {{api}}
+Content-Type: application/json
+
+{
+  "nombre": "Instalar Express",
+  "completada": true
+}
+
+### 3. Intentar crear tarea duplicada (Error 409)
+POST {{api}}
+Content-Type: application/json
+
+{
+  "nombre": "instalar express",
+  "completada": false
+}
+
+### 4. Consultar TODAS las tareas
+GET {{api}}
+
+### 5. Filtrar tareas COMPLETADAS
+GET {{api}}?completada=true
+
+### 6. Filtrar tareas PENDIENTES
+GET {{api}}?completada=false
+
+### 7. Marcar la primera tarea como completada
+PUT {{api}}/Terminar%20Ejercicio%203%20del%20TP
+Content-Type: application/json
+
+{
+  "nombre": "Terminar Ejercicio 3 del TP",
+  "completada": true
+}
+
+### 8. Eliminar la tarea
+DELETE {{api}}/Instalar%20Express
