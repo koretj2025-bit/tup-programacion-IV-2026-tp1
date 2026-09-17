@@ -1,0 +1,62 @@
+### Variables
+@api = http://localhost:3000/api/alumnos
+
+### 1. Obtener todos (debería estar vacío al principio)
+GET {{api}}
+
+### 2. Crear Alumno (Promocionado)
+POST {{api}}
+Content-Type: application/json
+
+{
+  "nombre": "Matias",
+  "notas": [8, 9, 10]
+}
+
+### 3. Crear Alumno (Aprobado)
+POST {{api}}
+Content-Type: application/json
+
+{
+  "nombre": "Tiara",
+  "notas": [7, 6, 6]
+}
+
+### 4. Intentar crear alumno con nombre duplicado (Debería fallar - 409 Conflict)
+POST {{api}}
+Content-Type: application/json
+
+{
+  "nombre": "Tiara",
+  "notas": [10, 10, 10]
+}
+
+### 5. Intentar enviar notas inválidas (Debería fallar - 400 Bad Request)
+POST {{api}}
+Content-Type: application/json
+
+{
+  "nombre": "Lucas",
+  "notas": [10, 8] 
+}
+
+### 6. Consultar los datos y promedios de un alumno
+GET {{api}}/Tiara
+
+### 7. Modificar las notas de un alumno (Pasar a reprobado)
+PUT {{api}}/Tiara
+Content-Type: application/json
+
+{
+  "nombre": "Tiara",
+  "notas": [4, 5, 2]
+}
+
+### 8. Verificar que la condición cambió tras modificar
+GET {{api}}/Tiara
+
+### 9. Eliminar un alumno
+DELETE {{api}}/Matias
+
+### 10. Verificar que se eliminó
+GET {{api}}
